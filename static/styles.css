@@ -1,0 +1,65 @@
+body {
+    background-color: #222;
+    color: white;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
+input {
+    width: 80%;
+    padding: 10px;
+    font-size: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: none;
+    background: #444;
+    color: white;
+}
+
+.results {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+}
+
+.column {
+    width: 45%;
+}
+
+textarea {
+    width: 100%;
+    height: 650px;
+    background: #333;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 24px;
+    border-radius: 10px;
+}
+
+/* Responsive design for mobile devices */
+@media screen and (max-width: 768px) {
+    .results {
+        flex-direction: column;
+    }
+    
+    .column {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    
+    textarea {
+        height: 300px;
+    }
+    
+    input {
+        width: 90%;
+        font-size: 16px;
+    }
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dictionary Search</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Difficulty Dictionary</h1>
+        <input type="text" id="search-bar" placeholder="search for tricks ..." aria-label="search for tricks">
+        <div class="results">
+            <div class="column">
+                <h2>Men</h2>
+                <textarea id="men-results" readonly placeholder="Results for Men..."></textarea>
+            </div>
+            <div class="column">
+                <h2>Women</h2>
+                <textarea id="women-results" readonly placeholder="Results for Women..."></textarea>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("search-bar").addEventListener("input", function() {
+            let query = this.value;
+
+            fetch("/search", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ query: query })
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("men-results").value = data.men;
+                document.getElementById("women-results").value = data.women;
+            });
+        });
+    </script>
+    <p3><small>made by SamuDev</small></p3>
+</body>
+</html>
